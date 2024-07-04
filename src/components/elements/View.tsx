@@ -1,9 +1,8 @@
 import React from 'react';
 import {View as RNView, StyleSheet} from 'react-native';
-import useThemedColors from '../../hooks/useThemedColors';
+import {COLORS} from '../../utils/constants';
 
 const View = React.memo((props: any) => {
-  const styles = useStyles();
   const style = {
     ...styles.defaultView,
     ...props.style,
@@ -11,16 +10,15 @@ const View = React.memo((props: any) => {
 
   return <RNView style={style}>{props.children}</RNView>;
 });
+
 export default View;
-const useStyles = () => {
-  let Colors = useThemedColors();
-  return StyleSheet.create({
-    defaultView: {
-      backgroundColor: Colors.background,
-      shadowOffset: {height: 1, width: 1},
-      shadowColor: 'black',
-      shadowOpacity: 0.5,
-      elevation: 10,
-    },
-  });
-};
+
+const styles = StyleSheet.create({
+  defaultView: {
+    backgroundColor: COLORS.background,
+    shadowOffset: {height: 1, width: 1},
+    shadowColor: 'black',
+    shadowOpacity: 0.5,
+    elevation: 10,
+  },
+});

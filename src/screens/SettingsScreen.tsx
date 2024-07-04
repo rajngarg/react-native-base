@@ -1,9 +1,12 @@
-import {Text, View} from 'react-native';
+import Header from 'components/Header';
+import {View} from 'components/elements';
+import React from 'react';
+import {IMAGES} from 'utils/constants';
 
 export default function SettingsScreen() {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Settings Screen</Text>
+    <View style={{flex: 1}}>
+      <Header title={'Settings Screen'} iconRight={IMAGES.header.options} />
     </View>
   );
 }

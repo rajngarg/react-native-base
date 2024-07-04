@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {View} from 'react-native';
-import Header from '../components/Header';
+import React from 'react';
+import Header from 'components/Header';
+import {View} from 'components/elements';
 
 export default function HomeScreen() {
   return (

@@ -1,35 +1,40 @@
-import React, {useEffect} from 'react';
-import {StyleSheet} from 'react-native';
-import {scale} from '../utils/Responsive';
+import React from 'react';
+import {ImageSourcePropType, StyleSheet} from 'react-native';
+import {scale} from 'utils/helpers/Responsive';
+import ImageButton from './ImageButton';
 import {Text, View} from './elements';
-import useThemedColors from '../hooks/useThemedColors';
+import {COLORS, IMAGES} from 'utils/constants';
 
 type IHeader = {
-  readonly title: string;
+  title: string;
+  iconLeft?: ImageSourcePropType;
+  iconRight?: ImageSourcePropType;
 };
 
 const Header = React.memo((props: IHeader) => {
-  const styles = useStyles();
-  const {title} = props;
+  const {title, iconLeft = IMAGES.header.back, iconRight} = props;
+
   return (
     <View style={styles.header}>
+      <ImageButton image={iconLeft} />
       <Text style={styles.title}>{title}</Text>
+      {iconRight && <ImageButton image={iconRight} />}
     </View>
   );
 });
 
 export default Header;
 
-const useStyles = () => {
-  let Colors = useThemedColors();
-  return StyleSheet.create({
-    header: {
-      padding: scale(20),
-      backgroundColor: Colors.header,
-    },
-    title: {
-      color: Colors.secondaryText,
-      fontSize: scale(20),
-    },
-  });
-};
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: COLORS.header,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  backImage: {resizeMode: 'contain'},
+  title: {
+    color: COLORS.primaryText,
+    flex: 1,
+    fontSize: scale(16),
+  },
+});

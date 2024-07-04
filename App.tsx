@@ -4,15 +4,15 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as React from 'react';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import COLORS from './src/utils/constants/Colors';
 import HomeScreen from './src/screens/HomeScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
-import {SafeAreaView, StyleSheet} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const screenOptions = {screenOptions: {headerShown: false}};
-
 function App() {
   return (
     <SafeAreaView style={styles.container}>
@@ -33,11 +33,10 @@ function Tabs() {
     </Tab.Navigator>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.background,
   },
 });
 

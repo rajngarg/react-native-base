@@ -1,24 +1,22 @@
 import React from 'react';
-import {Text as RNText, StyleSheet} from 'react-native';
-import useThemedColors from '../../hooks/useThemedColors';
-import {scale} from '../../utils/Responsive';
+import {Text as RNText, StyleSheet, TextProps} from 'react-native';
+import {scale} from 'utils/helpers/Responsive';
+import {COLORS} from 'utils/constants';
 
-const Text = React.memo((props: any) => {
-  const styles = useStyles();
-  const style = {
+const Text = React.memo((props: TextProps) => {
+  const {style} = props;
+  const customStyle = {
     ...styles.defaultText,
-    ...props.style,
+    style,
   };
-  return <RNText style={style}>{props.children}</RNText>;
+  return <RNText style={customStyle}>{props.children}</RNText>;
 });
 
 export default Text;
-const useStyles = () => {
-  let Colors = useThemedColors();
-  return StyleSheet.create({
-    defaultText: {
-      color: Colors.primaryText,
-      fontSize: scale(16),
-    },
-  });
-};
+
+const styles = StyleSheet.create({
+  defaultText: {
+    color: COLORS.primaryText,
+    fontSize: scale(16),
+  },
+});
