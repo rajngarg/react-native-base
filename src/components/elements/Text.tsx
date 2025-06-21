@@ -17,6 +17,6 @@ export default Text;
 const styles = StyleSheet.create({
   defaultText: {
     color: COLORS.primaryText,
-    fontSize: scale(16),
+    fontSize: scale(14),
   },
 });

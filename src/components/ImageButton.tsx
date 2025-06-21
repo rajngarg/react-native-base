@@ -1,6 +1,6 @@
 import React from 'react';
-import {ImageSourcePropType, StyleSheet, View} from 'react-native';
-import {scale} from 'utils/helpers/Responsive';
+import { ImageSourcePropType, StyleSheet, View } from 'react-native';
+import { scale } from 'utils/helpers/Responsive';
 import Image from './elements/Image';
 
 type IImageButton = {
@@ -8,7 +8,7 @@ type IImageButton = {
 };
 
 const ImageButton = React.memo((props: IImageButton) => {
-  const {image} = props;
+  const { image } = props;
   return (
     <View style={styles.container}>
       <Image source={image} style={styles.image} />
