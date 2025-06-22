@@ -1,26 +1,30 @@
 // In App.js in a new project
 
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
-import COLORS from './src/utils/constants/Colors';
-import HomeScreen from './src/screens/HomeScreen';
-import SettingsScreen from './src/screens/SettingsScreen';
+import { StyleSheet } from 'react-native';
+import COLORS from './src/constants/Colors';
+import HomeScreen from './src/screens/home';
+import SettingsScreen from './src/screens/settings';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const screenOptions = {screenOptions: {headerShown: false}};
+const screenOptions = { screenOptions: { headerShown: false } };
 function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <NavigationContainer>
-        <Stack.Navigator {...screenOptions}>
-          <Stack.Screen name="Tabs" component={Tabs} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <KeyboardProvider>
+        <NavigationContainer>
+          <Stack.Navigator {...screenOptions}>
+            <Stack.Screen name="Tabs" component={Tabs} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </KeyboardProvider>
     </SafeAreaView>
   );
 }

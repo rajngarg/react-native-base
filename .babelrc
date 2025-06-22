@@ -3,7 +3,9 @@
     [
       "module-resolver",
       {
-        "root": ["./src"],
+        "root": [
+          "./src"
+        ],
         "extensions": [
           ".js",
           ".jsx",
@@ -13,7 +15,14 @@
           ".android.tsx",
           ".ios.js",
           ".ios.tsx"
-        ]
+        ],
+        "alias": {
+          "@components": "./src/components",
+          "@constants": "./src/constants",
+          "@elements": "./src/elements",
+          "@screens": "./src/screens",
+          "@utils": "./src/utils"
+        }
       }
     ]
   ]

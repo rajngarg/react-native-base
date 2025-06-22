@@ -1,20 +1,20 @@
 import React from 'react';
-import {ImageProps, Image as RNImage, StyleSheet} from 'react-native';
-import {COLORS} from 'utils/constants';
+import { ImageProps, Image as RNImage, StyleSheet } from 'react-native';
+import { COLORS } from '@constants';
 
 interface IImage extends ImageProps {
   tintable?: boolean;
 }
 
 const Image = React.memo((props: IImage) => {
-  const {tintable, style} = props;
+  const { tintable, style } = props;
 
   let customStyle = {};
   if (tintable) {
-    customStyle = {...styles.default};
+    customStyle = { ...styles.default };
   }
 
-  customStyle = {...customStyle, style};
+  customStyle = { ...customStyle, style };
   return <RNImage style={customStyle} {...props} />;
 });
 
